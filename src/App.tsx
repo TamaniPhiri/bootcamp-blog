@@ -1,7 +1,12 @@
 import "./App.css";
+import Hero from "./components/Hero";
 
 function App() {
-  return <div style={{ backgroundColor: "red" }}>hello</div>;
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 }
 
 export default App;
