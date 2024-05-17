@@ -1,32 +1,23 @@
-import heroImage from "../assets/bg.jpg";
+import { DummyData } from "../constants/constants";
 
 const Hero = () => {
   return (
-    <div className="grid grid-cols-2 min-h-screen w-full items-center px-12">
-      <div className="flex flex-col gap-4">
-        <p className=" font-bold">😎 SIMPLE COMMUNICATION TOOL</p>
-        <h1 className=" text-7xl font-bold text-white">
-          Engage Your Audience in Minutes
-        </h1>
-        <p className=" text-gray-100">
-          Power communication tool for companies of all sizes
-        </p>
-        <div className="flex gap-4">
-          <button className="bg-blue-500 text-white py-3 px-4 rounded-lg font-semibold">
-            Start free trial
-          </button>
-          <button className="text-blue-100 underline font-semibold">
-            Get a live demo
-          </button>
+    <div className="min-h-screen grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 md:px-12 px-6 gap-12 md:py-16 py-8">
+      {DummyData.map((item, i) => (
+        <div key={i} className="">
+          <img
+            src={item.image}
+            alt="img"
+            className="w-full h-52 object-cover object-center"
+          />
+          <h1 className="font-bold text-4xl py-2">{item.title}</h1>
+          <div>
+            <span className="font-bold">{item.author} - </span>
+            <span className=" text-gray-500">{item.createdAt}</span>
+          </div>
+          <p className=" text-gray-600">{item.description}</p>
         </div>
-        <div className="flex gap-4">
-          <p>✅ No credit card required</p>
-          <p>✅ No software to install</p>
-        </div>
-      </div>
-      <div>
-        <img src={heroImage} alt="" className=" rounded-xl" />
-      </div>
+      ))}
     </div>
   );
 };
