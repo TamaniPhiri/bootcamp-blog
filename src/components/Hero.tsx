@@ -2,7 +2,7 @@ import { DummyData } from "../constants/constants";
 
 const Hero = () => {
   return (
-    <div className="min-h-screen grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 md:px-12 px-6 gap-12 md:py-16 py-8">
+    <div className="min-h-screen grid md:grid-cols-2 grid-cols-1 md:px-12 px-6 gap-12 md:py-16 py-8">
       {DummyData.map((item, i) => (
         <div key={i} className="">
           <img
