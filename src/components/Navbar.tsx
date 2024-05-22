@@ -9,6 +9,7 @@ const Navbar = () => {
       <h1>Blog</h1>{" "}
       <div className="flex items-center gap-2">
         <Link to={"/new-post"}>New Post</Link>
+        <Link to={"/my-posts"}>My Posts</Link>
         <span>{user?.username}</span>
       </div>
     </div>

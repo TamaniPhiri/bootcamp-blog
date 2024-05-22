@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NewPost from "./pages/NewPost";
+import MyPosts from "./pages/MyPosts";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route Component={Login} path="/login" />
       <Route Component={Register} path="/register" />
       <Route Component={NewPost} path="/new-post" />
+      <Route Component={MyPosts} path="/my-posts" />
     </Routes>
   );
 }
