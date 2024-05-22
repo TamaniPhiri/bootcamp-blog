@@ -1,10 +1,35 @@
+import axios from "axios";
 import { useState } from "react";
+import { useMutation } from "react-query";
 import { Link } from "react-router-dom";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const { mutate, isLoading } = useMutation(
+    "registerUser",
+    async () => {
+      const res = await axios.post(
+        "https://bootcamp-blog-server.vercel.app/user/signup",
+        {
+          email: email.toLowerCase().trim(),
+          password: password,
+          username: username,
+        }
+      );
+      return res.data;
+    },
+    {
+      onSuccess(data) {
+        console.log(data);
+      },
+      onError(error) {
+        console.log(error);
+      },
+    }
+  );
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center md:px-12 px-4">
@@ -34,8 +59,14 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button className="bg-lime-500 p-2 rounded-lg my-2">Sign up</button>
-        <Link to={"/register"}>
+        <button
+          disabled={isLoading}
+          onClick={() => mutate()}
+          className="bg-lime-500 p-2 rounded-lg my-2"
+        >
+          {isLoading ? "Loading..." : "Sign up"}
+        </button>
+        <Link to={"/login"}>
           <span className=" text-gray-600">Already have an account?</span> Login
         </Link>
       </div>
