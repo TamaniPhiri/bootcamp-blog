@@ -28,6 +28,9 @@ const NewPost = () => {
       onSuccess(data) {
         console.log(data);
         toast.success("Post created successfully");
+        setTitle("");
+        setdescription("");
+        setimage("");
       },
       onError(error) {
         console.log(error);
